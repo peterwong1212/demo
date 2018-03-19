@@ -1,0 +1,31 @@
+/*
+* @Author: Peter Wong
+* @Date:   2018-03-16 10:38:28
+* @Last Modified by:   Peter Wong
+* @Last Modified time: 2018-03-16 10:46:08
+*/
+.nav{
+	background: #eee;
+	height: 30px;
+	line-height: 30px;
+}
+
+.nav .user {
+	float: left;
+}
+
+.nav .user.login{
+	display: none;
+}
+
+.nav .user .link{
+	margin-right: 5px;
+}
+.nav .nav-list{
+	float: right;
+}
+
+
+.nav .nav-list .nav-item{
+	display: inline-block;
+}

@@ -1,8 +1,8 @@
 /*
 * @Author: Yineng
 * @Date:   2018-03-13 12:15:50
-* @Last Modified by:   Yineng
-* @Last Modified time: 2018-03-14 15:33:49
+* @Last Modified by:   Peter Wong
+* @Last Modified time: 2018-03-19 11:27:03
 */
 var webpack             = require('webpack');
 var ExtractTextPlugin   = require('extract-text-webpack-plugin');
@@ -14,10 +14,11 @@ var WEBPACK_ENV         = process.env.WEBPACK_ENV || 'dev';
 
 console.log(WEBPACK_ENV)
 // grt html-webpack-pligin
-var getHtmlConfig = function(name ){
+var getHtmlConfig = function(name, title){
     return {
         template    : './src/view/' + name + '.html',
         filename    : 'view/' + name + '.html',
+        title       : title,
         inject      : true,
         hash        : true,
         chunks      : ['common', name]
@@ -30,6 +31,7 @@ var config = {
 		'common'            : ['./src/page/common/index.js'],
         'index'             : ['./src/page/index/index.js'],
         'login'             : ['./src/page/login/index.js'],
+        'result'            : ['./src/page/result/index.js'],
 	},
   	output: {
   		path : './dist',
@@ -44,11 +46,20 @@ var config = {
 	module : {
 		loaders : [
 			{ test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader","css-loader")},
-			{ test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=100&name=resource/[name].[ext]'}
+			{ test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=100&name=resource/[name].[ext]'},
+            {test: /\.string$/, loader: 'html-loader'}
 
 		]
 	},
-
+     resolve : {
+        alias : {
+            node_modules    : __dirname + '/node_modules',
+            util            : __dirname + '/src/util',
+            page            : __dirname + '/src/page',
+            service         : __dirname + '/src/service',
+            image           : __dirname + '/src/image'
+        }
+    },
 	plugins: [
 
 	//independent module
@@ -59,8 +70,9 @@ var config = {
 		// css webpack
         new ExtractTextPlugin("css/[name].css"),
         //html module
-        new HtmlWebpackPlugin(getHtmlConfig('index')),
-        new HtmlWebpackPlugin(getHtmlConfig('login')),
+        new HtmlWebpackPlugin(getHtmlConfig('index', 'first page')),
+        new HtmlWebpackPlugin(getHtmlConfig('login', 'user login')),
+        new HtmlWebpackPlugin(getHtmlConfig('result', 'result page')),
 
 
 	]

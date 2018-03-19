@@ -1,0 +1,23 @@
+/*
+* @Author: Peter Wong
+* @Date:   2018-03-16 09:47:55
+* @Last Modified by:   Peter Wong
+* @Last Modified time: 2018-03-16 10:15:01
+*/
+
+.nav-simple
+{
+	height: 60px;
+	line-height: 60px;
+	border-bottom: 1px solid #ddd;
+	background: #fff;
+}
+
+
+.nav-simple .logo{
+	font-size: 26px;
+	font-weight: bold;
+	color: #c60023;
+	text-decoration: none;
+
+}
