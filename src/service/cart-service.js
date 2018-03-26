@@ -2,7 +2,7 @@
 * @Author: Peter Wong
 * @Date:   2018-03-16 11:25:59
 * @Last Modified by:   Peter Wong
-* @Last Modified time: 2018-03-16 11:31:18
+* @Last Modified time: 2018-03-27 06:56:12
 */
 
 
@@ -19,7 +19,7 @@ var _cart = {
             error   : reject
         });
     },
-    // 添加到购物车
+    
     addToCart : function(productInfo, resolve, reject){
         _mm.request({
             url     : _mm.getServerUrl('/cart/add.do'),
@@ -28,7 +28,7 @@ var _cart = {
             error   : reject
         });
     },
-    // 获取购物车列表
+    
     getCartList : function(resolve, reject){
         _mm.request({
             url     : _mm.getServerUrl('/cart/list.do'),
@@ -36,7 +36,7 @@ var _cart = {
             error   : reject
         });
     },
-    // 选择购物车商品
+    
     selectProduct : function(productId, resolve, reject){
         _mm.request({
             url     : _mm.getServerUrl('/cart/select.do'),
@@ -47,7 +47,7 @@ var _cart = {
             error   : reject
         });
     },
-    // 取消选择购物车商品
+    
     unselectProduct : function(productId, resolve, reject){
         _mm.request({
             url     : _mm.getServerUrl('/cart/un_select.do'),
@@ -58,7 +58,7 @@ var _cart = {
             error   : reject
         });
     },
-    // 选中全部商品
+    
     selectAllProduct : function(resolve, reject){
         _mm.request({
             url     : _mm.getServerUrl('/cart/select_all.do'),
@@ -66,7 +66,7 @@ var _cart = {
             error   : reject
         });
     },
-    // 取消选中全部商品
+    
     unselectAllProduct : function(resolve, reject){
         _mm.request({
             url     : _mm.getServerUrl('/cart/un_select_all.do'),
@@ -74,7 +74,7 @@ var _cart = {
             error   : reject
         });
     },
-    // 更新购物车商品数量
+    
     updateProduct : function(productInfo, resolve, reject){
         _mm.request({
             url     : _mm.getServerUrl('/cart/update.do'),
@@ -83,7 +83,7 @@ var _cart = {
             error   : reject
         });
     },
-    // 删除指定商品
+    
     deleteProduct : function(productIds, resolve, reject){
         _mm.request({
             url     : _mm.getServerUrl('/cart/delete_product.do'),
